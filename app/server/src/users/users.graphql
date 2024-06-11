@@ -1,0 +1,23 @@
+type User {
+  id: Int!
+  username: String
+  avatar: String
+  createdAt: Timestamp
+  articles: [Article!]
+  likes: [Like!]
+  comments: [Comment!]
+}
+
+input CreateUserInput {
+  username: String
+  password: String
+}
+
+type Query {
+  users: [User]!
+  user(username: String!): User
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+}

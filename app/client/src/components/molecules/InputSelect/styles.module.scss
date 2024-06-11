@@ -1,0 +1,29 @@
+.input_select {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+  > select {
+    border: 1px solid #000;
+    padding: 4px 10px;
+    border-radius: 50px;
+    appearance: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-75%) translateY(-50%);
+    border: 5px solid transparent;
+    border-color: #000 transparent transparent transparent;
+  }
+}

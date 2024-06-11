@@ -1,0 +1,3 @@
+query GetHasUserLikedArticle($id: Int!) {
+  hasUserLikedArticle(id: $id)
+}

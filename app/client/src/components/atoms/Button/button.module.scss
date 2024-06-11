@@ -1,0 +1,56 @@
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 20px;
+  background: rgba(25, 25, 25, 1);
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+  width: 213px;
+  font-weight: 400;
+  transition: all 300ms;
+
+  &:hover {
+    background: #000;
+  }
+
+  &.size-sm {
+    padding: 2px 6px;
+    width: auto;
+    font-size: 15px;
+  }
+
+  &.color-green {
+    background: rgba(26, 137, 23, 0.25);
+  }
+
+  &.active {
+    background: #1a8917;
+
+    &:hover {
+      background: #0f730c;
+    }
+  }
+
+  &.outline {
+    display: flex;
+    gap: 4px;
+    background: transparent;
+    border: 1px solid #000;
+    color: #000;
+  }
+
+  &.underline{
+    display: flex;
+    gap: 4px;
+    background: transparent;
+    text-decoration: underline;
+    color: #242424;
+    align-items: center;
+    padding: 1px;
+  }
+
+  &.width-auto {
+    width: auto;
+  }
+}

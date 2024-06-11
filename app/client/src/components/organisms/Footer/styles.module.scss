@@ -1,0 +1,53 @@
+@import "../../../assets/styles/variables";
+
+
+.footer {
+  border-top: 1px solid $yellow;
+  background-color: $black;
+  padding: 2rem;
+  text-align: center;
+  font-family: $roboto;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 2;
+  color: rgba($white, .6);
+
+  & > div:first-child{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ul {
+      padding-left: 2rem;
+      list-style: disc;
+      text-align: left;
+    }
+
+    a{
+      color: $yellow;
+      font-weight: 500;
+    }
+  }
+
+  & > div:last-child{
+    margin-top: 2rem;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul{
+      display: flex;
+      gap: 1rem;
+      p{
+        font-weight: 500;
+      }
+      li{
+        color: $white;
+      }
+    }
+  }
+
+
+
+}

@@ -1,0 +1,5 @@
+mutation RemoveArticle($id: Int!) {
+  removeArticle(id: $id) {
+    id
+  }
+}

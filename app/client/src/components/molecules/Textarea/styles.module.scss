@@ -1,0 +1,19 @@
+.textarea {
+  position: relative;
+
+  > p {
+    position: absolute;
+    z-index: 1;
+    color: #b3b3b1;
+  }
+
+  > div {
+    position: relative;
+    border: none;
+    z-index: 10;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

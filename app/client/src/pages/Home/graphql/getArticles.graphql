@@ -1,0 +1,19 @@
+query GetArticles($sort: ArticleSortInput!) {
+  articles(sort: $sort) {
+    id
+    title
+    content
+    image
+    likes {
+      id
+    }
+    createdAt
+    author {
+      username
+      avatar
+    }
+    comments {
+      id
+    }
+  }
+}

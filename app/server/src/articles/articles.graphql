@@ -1,0 +1,54 @@
+type Article {
+  id: Int!
+  title: String
+  content: String
+  image: String
+  createdAt: Timestamp
+  author: User
+  likes: [Like!]
+  comments: [Comment!]
+}
+
+scalar Timestamp
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input ArticleSortInput {
+  likes: SortOrder
+  createdAt: SortOrder
+}
+
+input ArticleFilterInput {
+  title: String
+  authorId: Int
+  createdAfter: Timestamp
+  createdBefore: Timestamp
+}
+
+input CreateArticleInput {
+  title: String!
+  content: String!
+}
+
+input UpdateArticleInput {
+  id: Int!
+  title: String!
+  content: String!
+}
+
+type Query {
+  articles(filter: ArticleFilterInput, sort: ArticleSortInput): [Article]!
+  article(id: Int!): Article
+  getArticleLikesCount(id: Int!): Int!
+  getArticleCommentsCount(id: Int!): Int!
+  hasUserLikedArticle(id: Int!): Boolean!
+}
+
+type Mutation {
+  createArticle(createArticleInput: CreateArticleInput!): Article!
+  updateArticle(updateArticleInput: UpdateArticleInput!): Article!
+  removeArticle(id: Int!): Article
+}

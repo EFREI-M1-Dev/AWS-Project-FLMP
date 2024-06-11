@@ -1,0 +1,9 @@
+# codegen.yml
+schema: 'http://localhost:3000/graphql' # Chemin vers votre schéma GraphQL
+documents: 'src/**/*.graphql' # Chemin vers vos fichiers de requêtes GraphQL
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'

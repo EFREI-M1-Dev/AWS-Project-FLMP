@@ -1,0 +1,61 @@
+@import '../../assets/styles/variables';
+
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: $yellow;
+  min-height: 463px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 217px 64px 150px;
+
+  > div {
+    padding-left: 64px;
+
+    h1 {
+      font-size: 106px;
+      letter-spacing: -0.01em;
+      line-height: 95px;
+      font-weight: 400;
+      padding-bottom: 35px;
+      font-family: $lora;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 24px;
+      color: #242424;
+      font-weight: 400;
+      margin-bottom: 50px;
+    }
+  }
+
+  .animationHeader {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.filter_bar {
+  display: flex;
+  justify-content: center;
+  padding: 0 64px;
+
+  > .content {
+    width: 100%;
+    max-width: 1340px;
+    padding: 20px 0;
+    position: relative;
+  }
+}
+
+.article_list {
+  display: flex;
+  justify-content: center;
+  padding: 0px 64px 40px;
+}

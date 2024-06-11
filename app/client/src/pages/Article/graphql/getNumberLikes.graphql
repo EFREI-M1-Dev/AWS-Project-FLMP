@@ -1,0 +1,3 @@
+query GetNumberLike($id: Int!) {
+  getArticleLikesCount(id: $id)
+}

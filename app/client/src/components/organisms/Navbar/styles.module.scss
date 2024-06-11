@@ -1,0 +1,134 @@
+@import '../../../assets/styles/variables';
+
+.navbar {
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  background: $yellow;
+  border-bottom: 1px solid #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+
+  > div {
+    width: 100%;
+    max-width: 1192px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > ul {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 14px;
+
+      > li {
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  width: 142px;
+}
+
+.button {
+  padding: 8px 16px;
+  width: auto;
+  font-size: 14px;
+}
+
+.navbar_logged {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57px;
+  padding: 0 24px;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  border-bottom: 1px solid $black;
+
+  > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      &:first-of-type {
+        gap: 16px;
+
+        .input_search {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: #f9f9f9;
+          border-radius: 20px;
+          width: 240px;
+          padding-left: 10px;
+
+          > input {
+            border: none;
+            width: 100%;
+            padding: 10px 20px 10px 0;
+            background-color: transparent;
+            font-size: 14px;
+            color: #242424;
+
+            &:focus-visible {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      &:last-of-type {
+        gap: 32px;
+
+        > a {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+          color: #6b6b6b;
+        }
+      }
+
+      > .avatar {
+        background-position: center;
+        background-repeat: none;
+        background-size: cover;
+        overflow: hidden;
+        border-radius: 100%;
+        width: 32px;
+        aspect-ratio: 1/1;
+      }
+
+      > span {
+        color: #6b6b6b;
+        margin-left: -16px;
+        cursor: pointer;
+
+        &:hover {
+          color: #2f2f2f;
+        }
+      }
+    }
+  }
+}
