@@ -12,7 +12,7 @@ La page d'accueil :
 ![Image](images/image_home_client.png)
 
 Lien du dépôt : [ICI](https://github.com/EFREI-M1-Dev/GraphQL-Eval-FLMP)
-  
+
 <hr>
 
 ## Étape 2 : Docker
@@ -27,10 +27,12 @@ Commande d'exécution :
 docker compose -f "app/docker-compose.yml" up -d --build
 ```
 
-Résultat après avoir exécuté la commande : 
+Résultat après avoir exécuté la commande :
+
 ![Image docker command](images/image_docker_app_running.png)
 
 Résultat sur `localhost:5173` : 
+
 ![Image résultat](images/image_docker_app_result.png)
 
 <hr>
