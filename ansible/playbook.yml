@@ -3,44 +3,40 @@
   become: yes
 
   tasks:
-    - name: Update and upgrade apt packages
+    - name: Install aptitude
       apt:
-        update_cache: yes
-        upgrade: dist
+        name: aptitude
+        state: latest
+        update_cache: true
 
     - name: Install required system packages
       apt:
-        name: 
+        pkg:
           - apt-transport-https
           - ca-certificates
           - curl
           - software-properties-common
-        state: present
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
 
-    - name: Add Docker’s official GPG key
+    - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
 
-    - name: Add Docker APT repository
+    - name: Add Docker Repository
       apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
 
-    - name: Update the apt package index
-      apt:
-        update_cache: yes
-
-    - name: Install Docker CE
+    - name: Update apt and install docker-ce
       apt:
         name: docker-ce
-        state: present
-
-    - name: Install Docker Compose
-      get_url:
-        url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}
-        dest: /usr/local/bin/docker-compose
-        mode: '0755'
+        state: latest
+        update_cache: true
 
     - name: Ensure docker service is running
       service:
@@ -48,18 +44,13 @@
         state: started
         enabled: yes
 
-    - name: Create application directory
-      file:
-        path: /app
-        state: directory
-        mode: '0755'
-
-    - name: Copy Docker Compose file
+    - name: Copy files
       copy:
-        src: app/docker-compose.yml
-        dest: /app/docker-compose.yml
+        src: ./app
+        dest: /home/ubuntu/
 
-    - name: Launch Docker Compose
-      command: docker-compose up -d
-      args:
-        chdir: /app
+    - name: deploy Docker Compose stack
+      community.docker.docker_compose:
+        project_src: /home/ubuntu/app
+        files:
+        - docker-compose.yml
