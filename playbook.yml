@@ -16,6 +16,8 @@
           - ca-certificates
           - curl
           - software-properties-common
+          - python3-full
+          - python3-docker
           - python3-pip
           - virtualenv
           - python3-setuptools
@@ -44,13 +46,13 @@
         state: started
         enabled: yes
 
-    - name: Copy files
-      copy:
-        src: ./app
-        dest: /home/ubuntu/
+    # - name: Copy files
+    #   copy:
+    #     src: ./app
+    #     dest: /home/ubuntu/
 
     - name: deploy Docker Compose stack
-      community.docker.docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /home/ubuntu/app
         files:
         - docker-compose.yml

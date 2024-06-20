@@ -6,4 +6,4 @@ logs
 .DS_Store
 
 
-ansible/myKey.pem
+myKey.pem

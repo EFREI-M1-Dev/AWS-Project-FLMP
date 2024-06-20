@@ -10,4 +10,6 @@ RUN pip3 install --upgrade pip; \
 
 WORKDIR /playbooks
 
+COPY . .
+
 CMD ["ansible"]
