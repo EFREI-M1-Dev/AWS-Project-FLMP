@@ -5,5 +5,5 @@ logs
 # OS
 .DS_Store
 
-
+/.idea/
 myKey.pem
