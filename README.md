@@ -13,6 +13,7 @@ La page d'accueil :
 
 Lien du dépôt : [ICI](https://github.com/EFREI-M1-Dev/GraphQL-Eval-FLMP)
   
+<hr>
 
 ## Étape 2 : Docker
 ### 2.1 Dockerfile
@@ -32,13 +33,14 @@ Résultat après avoir exécuté la commande :
 Résultat sur `localhost:5173` : 
 ![Image résultat](images/image_docker_app_result.png)
 
+<hr>
 
 ## Étape 3 : Docker Swarm
 
 ### 3.1 Le script de déploiement avec multipass et docker swarm : 
 Bientôt disponible!
 
-
+<hr>
 
 ## Étape 4 : Terraform et Ansible avec AWS
 ### 4.1 Informations de connexion
