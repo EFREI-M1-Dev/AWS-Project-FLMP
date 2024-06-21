@@ -52,8 +52,19 @@ services:
     networks:
       - app-network
 
+  jenkins:
+    image: jenkins/jenkins:2.430-jdk21
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+
 volumes:
   postgres_data:
+  jenkins_home:
 
 networks:
   app-network:
