@@ -46,6 +46,8 @@ Vous avez juste besoin de lancer le script :
 sh swarm/launch.sh
 ```
 
+Ou faites ceci manuellement en suivant le README.md dans le dossier swarm.
+
 <hr>
 
 ## Étape 4 : Terraform et Ansible avec AWS
