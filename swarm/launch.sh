@@ -4,10 +4,23 @@
 install_docker() {
     local instance_name=$1
     multipass exec "$instance_name" -- sudo apt-get update
-    multipass exec "$instance_name" -- sudo apt-get install -y docker.io
+    # multipass exec "$instance_name" -- sudo apt-get install docker.io
+
+    # Add Docker's official GPG key:
+    multipass exec "$instance_name" -- sudo apt-get update
+    multipass exec "$instance_name" -- sudo apt-get install ca-certificates curl
+    multipass exec "$instance_name" -- sudo install -m 0755 -d /etc/apt/keyrings
+    multipass exec "$instance_name" -- sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    multipass exec "$instance_name" -- sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    # Add the repository to Apt sources:
+    multipass exec "$instance_name" -- echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    multipass exec "$instance_name" -- sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    multipass exec "$instance_name" -- sudo apt-get update
 }
 
-# Fonction pour joindre les workers au Swarm
 join_swarm() {
     local instance_name=$1
     local join_command=$2
@@ -37,10 +50,10 @@ join_swarm worker1 "$JOIN_COMMAND"
 join_swarm worker2 "$JOIN_COMMAND"
 
 
-multipass exec master -- git clone https://github.com/EFREI-M1-Dev/AWS-Project-FLMP.git
+multipass exec master -- git clone https://github.com/EFREI-M1-Dev/GraphQL-Eval-FLMP.git
 
 
-multipass exec master -- sudo docker service create --name registry -p 5000:5000 registry:2
+multipass exec master -- sudo docker service create --name registry -p 5000:5000 registry
 
 
 multipass exec master -- bash -c "cd AWS-Project-FLMP/app/server && sudo docker image build -t 127.0.0.1:5000/server_image:latest -f Dockerfile ."
