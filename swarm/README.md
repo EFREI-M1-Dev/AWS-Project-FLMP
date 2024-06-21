@@ -63,7 +63,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-## Ajouter le répertoire Apt sources:
+## Mettre à jour / Apt sources:
 
 ```
 echo \
@@ -87,16 +87,16 @@ sudo docker run hello-world
 docker swarm init --advertise-addr 192.168.69.7
 ```
 
-## Puis dans chaque worker, lié ces dernier au master
+## Puis dans chaque worker, lié ces derniers au master
 
 ```
 docker swarm join --token <join_token> <ip_master>:2377
 ```
 
-## Ajouter le docker-compose.yml (dans le dossier swarm) dans l'instance master or git clone
+## Ajouter le docker-compose.yml (dans le dossier swarm) dans l'instance master ou faites un git clone
 
 ```
-https://github.com/EFREI-M1-Dev/AWS-Project-FLMP.git
+git clone https://github.com/EFREI-M1-Dev/AWS-Project-FLMP.git
 ```
 
 ## Créer un nouveau registry
