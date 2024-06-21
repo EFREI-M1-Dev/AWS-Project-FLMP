@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance" "instance" {
   ami                    = "ami-04b70fa74e45c3917"
   instance_type          = "t2.micro"
-  key_name               = "Magrossecle"
+  key_name               = "myKey"
   vpc_security_group_ids = [aws_security_group.allow_ssh.id, aws_security_group.allow_web.id]
 
   tags = {

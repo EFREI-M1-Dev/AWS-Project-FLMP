@@ -56,11 +56,17 @@ Ou faites ceci manuellement en suivant le README.md dans le dossier swarm.
 2. Créer depuis l'interface AWS une **key pair** nommé **"myKey"** pour pouvoir se connecter à l'instance EC2. Puis télécharger le fichier `.pem` et le placer le à la racine du projet.
 
 ### 4.2 Terraform
-Une fois les informations de connexion récupérées, il n'y a plus qu'à 
+Une fois les informations de connexion récupérées, il n'y a plus qu'à :
 
 Commandes à exécuter : 
 ```sh
 cd terraform
+
+# Remplacer les valeurs avec votre access key et secret key
+echo 'aws_access_key = "XXX"\naws_secret_key = "XXX"' > variables.tfvars
+
+docker container run -it --rm -v $PWD:$PWD -w $PWD hashicorp/terraform init
+
 docker build -t terraform .
 docker run --rm -w /workspace terraform apply -auto-approve
 ```
@@ -71,9 +77,9 @@ Si toutes les informations demandées sont correctes, et une fois l'exécution r
 
 
 ### 4.3 Ansible
+Vous devez placer votre clé `myKey.pem` à la racine du projet si ça n'est pas déja fait, ainsi que changer l'adresse du server dans `inventory.ini`, puis éxecuter ces commandes :
 
 ```sh
 docker image build -t ansible:2.16 . 
 docker container run --rm ansible:2.16 ansible-playbook -i inventory.ini playbook.yml
-
 ```
