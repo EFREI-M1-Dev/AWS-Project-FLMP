@@ -40,7 +40,11 @@ Résultat sur `localhost:5173` :
 ## Étape 3 : Docker Swarm
 
 ### 3.1 Le script de déploiement avec multipass et docker swarm : 
-Bientôt disponible!
+
+Vous avez juste besoin de lancer le script :
+```sh
+sh swarm/launch.sh
+```
 
 <hr>
 
