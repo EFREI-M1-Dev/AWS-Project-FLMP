@@ -46,6 +46,11 @@ echo \
 sudo apt-get update
 ```
 
+## Ou lancer une instance multipass directement à partir de l'image docker
+```
+multipass launch --name master docker
+```
+
 ## Verifier le bon fonctionnement de Docker :
 
 ```
