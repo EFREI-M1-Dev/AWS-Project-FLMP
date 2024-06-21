@@ -83,3 +83,34 @@ Vous devez placer votre clé `myKey.pem` à la racine du projet si ça n'est pas
 docker image build -t ansible:2.16 . 
 docker container run --rm ansible:2.16 ansible-playbook -i inventory.ini playbook.yml
 ```
+
+### Étape 5 : initialisation de Jenkins
+
+Pour lancer et tester Jenkins en local:
+```sh
+docker run -p 8080:8080 -p 50000:50000 --restart=on-failure jenkins/jenkins:2.430-jdk21
+```
+Sinon lancer le docker compose du projet, Jenkins est incorporé dedans
+
+Jenkins nous fournit un mot de passe initial pour la première étape.
+
+![Image mot de passe générée localement](images/jenkins/initialAdminPassword.png)
+
+Nous avons le choix entre une installation traditionnel et une installation suggérée. Nous choisirons la seconde option.
+
+![Suggested Install](images/jenkins/suggested%20install.png)
+
+Une fois l'installation effectuée, nous créons l'utilisateur admin et sommes prêt à utiliser Jenkins.
+
+On sélectionne New Item puis Freestyle project
+
+![Freestyle project](images/jenkins/freestyle%20project.png)
+
+Nous inscrivons l'url Git du projet et définissons la routine de mise à jour du Git
+
+![Url Git](images/jenkins/github.png)
+![build Triggers](images/jenkins/build%20triggers.png)
+
+Jenkins est en marche, on peut lancer un premier Build manuel pour s'assurer du bon focntionnement du projet ou attendre la routine.
+
+![Build Complete](/images/jenkins/build%20complete.png)
